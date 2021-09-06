@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
-const config = require('config');
 const jwt = require('jsonwebtoken');
+const config = require('config');
+
 const Joi = require('joi');
 
 const Schema = mongoose.Schema;

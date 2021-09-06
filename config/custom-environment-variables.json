@@ -1,5 +1,8 @@
 {
-    "mail": {
-        "password": "app_password"
-    }
+	"jwtPrivateKey": "presentation_jwtPrivateKey",
+	"db": "students_1_db",
+ 	"name": "My Express Presentations App"
 }
+
+
+

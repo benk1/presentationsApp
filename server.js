@@ -1,34 +1,24 @@
+require('express-async-errors')
 require('dotenv').config();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const winston = require('winston');
 const debug = require('debug')('app:startup');
 const config = require('config');
 const morgan = require('morgan');
-const helmet = require('helmet');
-const logger = require('./middleware/logger');
-const presenters = require('./routes/presenters');
+const path = require('path')
 const express = require('express');
-const { urlencoded } = require('express');
 const app = express();
 
 //console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 //console.log(`app: ${app.get('env')}`)
-require('./startup/prod');
 
+require('./startup/logging')
+require('./startup/routes')(app);
+require('./startup/db')();
+require('./startup/config')()
+require('./startup/validation')()
+require('./startup/prod')(app);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('public'));
-app.use(helmet());
-app.use(logger);
-app.use('/api/presenters', presenters);
-
-//configuration
 console.log('Application Name: ' + config.get('name'));
-//console.log('Mail Server: ' + config.get('mail.host'))
-//console.log('Mail Password: ' + config.get('mail.password'))
 
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'));
@@ -43,18 +33,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '/client/build/index.html'))
   );
 }
-
-//const url =
-//'mongodb+srv://benk:4mathias@cluster0.hgieq.mongodb.net/students_1_db?retryWrites=true&w=majority';
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log('Connected to MongoDB...'));
-
 //PORT
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on Port ${port}...`));
+const PORT = process.env.PORT || config.get('port');
+const server = app.listen(PORT, () => winston.info(`Listening on Port ${PORT}...`));
+
+module.exports = server

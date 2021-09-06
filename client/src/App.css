@@ -1,38 +1,209 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: sans-serif; /*Raleway*/
+  color: black; /*#555*/
+  /*background: #ff5252;*/
+  /* margin: 10px 30px; */
+  /*text-align: center;*/
+  /* padding: 20px 0px; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+  background-color: #111;
+  list-style-type: none;
+}
+.add,
+.presentations,
+.home {
+  display: inline-block;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*form{
+  max-width: 350px;
+  margin: 30px auto;
+}*/
+
+/*.form{
+  display: flex;
+  align-items: baseline;
+ 
+}*/
+
+.first-row {
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+
+  /*justify-content: center;*/
+}
+
+/*.second-row{
+  display: flex;
+  justify-content: space-around;
+  margin-right: 250px;
+  justify-content: center;
+}*/
+
+/*.first-column{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}*/
+
+/*.group{
+  display: inline-block;
+}*/
+.presenters {
+  display: flex;
+  border: 2px solid black;
+  width: 890px;
+  height: 60px;
+  line-height: 60px;
+  background: white;
+  color: black;
+  font-size: 18px;
+  padding: 20px;
+  margin-right: 180px;
+}
+.presentername {
+  display: flex;
+  /*flex-direction: column;*/
+  font-weight: bold;
+}
+input {
+  /*display: block;
+  width: 300px;
+  margin: 20px 0;
+  padding: 1px;
+  border-radius: 4px;*/
+  border: 1px solid #ddd;
+}
+label {
+  font-weight: bold;
+}
+button {
+  float: left;
+  background: green;
+  border: 0;
+  padding: 5px 10px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 50px;
+}
+
+.addpresenter {
+  text-align: center;
+}
+.item-view {
+  background: gray;
+  margin: 10px;
+}
+
+.item-edit {
+  margin: 10px;
+
+  background: black;
+}
+
+.item-delete {
+  background: red;
+  margin: 10px;
+}
+link {
+  font-size: 20px;
+}
+.bigDiv {
+  margin-left: 80px;
+}
+.presenter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  font-size: 20px;
+  text-align: left;
+  justify-content: space-between;
+}
+.staticDiv {
+  display: flex;
+  justify-content: space-between;
+}
+h2 {
+  margin-top: 40px;
+}
+.badge {
+  font-size: 20px;
+}
+.showNumberOfPresentations {
+  text-align: center;
+  margin-bottom: 30px;
+  color: black;
+}
+h3 {
+  font-weight: bold;
+}
+.presenters {
+  /*width: 800px;
+  margin: 0 auto;*/
+  border: none;
+}
+.headerStyle {
+  background: #333, color #fff;
+}
+.addPresenter {
+  text-decoration: none;
+  font-size: 20px;
   color: white;
+  margin-bottom: 20px;
+
+  /* style={{ textDecoration: 'none', fontSize: '20px', color: 'blue', marginBottom: '20px' }} */
+}
+textarea {
+  height: 4em;
+  width: 50em;
+}
+/* tbody {
+	justify-content: space-evenly;
+	margin: 0 auto;
+} */
+
+.like {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  line-height: 20px;
+}
+.fa-heart-0 {
+  font-size: 54px;
+}
+.btn-floating {
+  background: #456bd9;
+  border: 0.1875em solid #0f1c3f;
+  border-radius: 50%;
+  box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+  height: 2.5em;
+  width: 2.5em;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.presentationDetails {
+  color: '#333';
+}
+.backToPresentations {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addPresenter {
+  text-decoration: none;
 }

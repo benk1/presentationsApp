@@ -1,3 +1,7 @@
 {
-    "name": "My Presentation Express App"
+   "jwtPrivateKey": "mySecureKey",
+   "db": "mongodb;//localhost/presentation",
+   "port": "5000",
+   "name": "Node/Express Presentation App",
+   "requiresAuth": true
 }

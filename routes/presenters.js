@@ -1,4 +1,7 @@
 
+const validateObjectId = require('../middleware/validateObjectId')
+const auth = require('../middleware/auth')
+const admin = require('../middleware/admin')
 const { validate,Presenter } = require('../models/Presenter');
 //const Presenter = require('../models/Presenter');
 const express = require('express');
@@ -10,12 +13,24 @@ const router = express.Router();
 //   { id: 3, presenterName: 'presenter3' },
 // ];
 
-router.get('/', async (req, res) => {
-  const presenters = await Presenter.find().sort('presenterName');
-  res.send(presenters);
+router.get('/', async (req, res,next) => {
+  try {
+    const presenters = await Presenter.find().sort('presenterName');
+    res.send(presenters);
+    
+  } catch (ex) {
+    console.log(ex)
+    res.status(500).send('Something Failed...!')
+    next(ex)
+    
+
+
+    
+  }
+
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth ,async (req, res) => {
   //Validate
   //const result = validate(req.body) ---before destructring
      const { error } = validate(req.body);
@@ -37,11 +52,11 @@ router.post('/', async (req, res) => {
   res.send(presenter);
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id',[auth,validateObjectId] ,async (req, res) => {
   //Validate
-  const { error } = validate(req.body);
+  // const { error } = validate(req.body);
   //If invalid, return 400 - Bad request
-  if (error) return res.status(400).send(error.details[0].message);
+  // if (error) return res.status(400).send(error.details[0].message);
   //Look up the presenter
   const presenter = await Presenter.findByIdAndUpdate(
     req.params.id,
@@ -65,7 +80,7 @@ router.put('/:id', async (req, res) => {
   res.send(presenter);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',[auth,admin,validateObjectId] ,async (req, res) => {
   //Look up the presenter
   const _id = req.params.id;
   console.log('deletedObject ID is:', _id);
@@ -80,7 +95,7 @@ router.delete('/:id', async (req, res) => {
   res.send(presenter);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id',validateObjectId, async (req, res) => {
   const presenter = await Presenter.findById(req.params.id);
   if (!presenter)
     return res

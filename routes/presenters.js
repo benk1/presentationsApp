@@ -7,11 +7,6 @@ const { validate,Presenter } = require('../models/Presenter');
 const express = require('express');
 const router = express.Router();
 
-// const presenters = [
-//   { id: 1, presenterName: 'presenter1' },
-//   { id: 2, presenterName: 'presenter2' },
-//   { id: 3, presenterName: 'presenter3' },
-// ];
 
 router.get('/', async (req, res,next) => {
   try {

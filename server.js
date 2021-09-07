@@ -11,6 +11,12 @@ const app = express();
 //console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 //console.log(`app: ${app.get('env')}`)
 
+app.get("/", (req, res) => {
+  res
+      .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+      .send("<html><head></head><body></body></html>");
+})
+
 require('./startup/logging')
 require('./startup/routes')(app);
 require('./startup/db')();

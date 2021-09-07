@@ -211,7 +211,7 @@ class App extends Component {
           <ToastContainer />
           <SearchBox onChange={this.handleSearch} />
           <Switch>
-            <Route exact path='/' component={Home} />
+            {/* <Route exact path='/' component={Home} /> */}
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogInForm} />
             <Route path='/logout' component={LogOut} />

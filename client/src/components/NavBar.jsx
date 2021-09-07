@@ -10,9 +10,9 @@ function Header({ user }) {
 
 			<div className='collapse navbar-collapse' id='navbarNav '>
 				<ul className='navbar-nav'>
-					{/* <NavLink className='nav-item nav-link' to='/presenters'>
+					<NavLink className='nav-item nav-link' to='/presenters'>
 						Home
-					</NavLink> */}
+					</NavLink>
 
 					<NavLink className='nav-item nav-link' to='/presentation/new'>
 						AddNewPresentantion

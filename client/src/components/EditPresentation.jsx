@@ -8,13 +8,13 @@ const apiEndPoint = '/presenters';
 class EditPresentation extends Form {
 	state = {
 		data: {
-			// id: this.props.presenter.data._id,
-			presenterName: '', //this.props.presenter.data.presenterName,
-			evaluatorName: '', //this.props.presenter.data.evaluatorName,
-			topic: '', //this.props.presenter.data.topic,
-			articleUrl: '', //this.props.presenter.data.articleUrl,
-			presentationDate: '', //this.props.presenter.data.presentationDate,
-			textarea: '', //this.props.presenter.data.textarea,
+			
+			presenterName: '', 
+			evaluatorName: '', 
+			topic: '', 
+			articleUrl: '', 
+			presentationDate: '', 
+			textarea: '', 
 		},
 		editPresenter: [],
 		errors: {},
@@ -82,19 +82,7 @@ class EditPresentation extends Form {
 		return axios.get(this.presenterUrl(presenterId));
 	};
 
-	// savePresenter = (presenter) => {
-	// 	if (presenter._id) {
-	// 		const body = { ...presenter };
-	// 		console.log('BODY', body);
-	// 		delete body._id;
-	// 		return axios.put(`/presenters/${presenter._id}`, body);
-	// 	}
-	// 	return axios.post(`/presenters/${presenter._id}`, presenter);
-	// };
-
-	// getPresenter = (presenterId) => {
-	// 	return Axios.get(`/presenters/${presenter._id}`, presenterId);
-	// };
+	
 
 	handleEdit = (presenter, index) => {
 		axios
@@ -114,11 +102,7 @@ class EditPresentation extends Form {
 	doSubmit = async () => {
 		console.log('submitted On Edit');
 		this.props.onUpdate(this.state.data);
-		// this.props.onEdit(this.state.data, this.props.presenter.index);
-
-		//this.handleEdit(this.state.data, this.props.presenter.index);
-		// await savePresenter(this.state.data);
-
+		
 		this.props.history.push('/presenters');
 	};
 	render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './common/Form';
 import Joi from 'joi-browser';
-//import axios from 'axios';
+
 class AddPresentation extends Form {
 	state = {
 		data: {

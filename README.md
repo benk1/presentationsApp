@@ -1,4 +1,4 @@
-#Presentation App
+# Presentation App
 
 This is Presentations Management Application, It is designed that you
 can manage your presentations in an Organisation,Enterprise or school.
@@ -9,7 +9,8 @@ requirements in Add presentation form Link..
 
 ## 1.Technology used - MERN-Stack (MONGODB,Express,ReactJs,NodeJs)
 
-#usage
+# usage
+
 -Clone the repo at https://github.com/benk1/presentationsApp.git
 -install the dependencies(npm install)
 -At the root of the Application run the server & client together-concurrently(npm run dev)

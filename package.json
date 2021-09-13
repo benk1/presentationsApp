@@ -4,6 +4,7 @@
   "description": "Application for different presenters",
   "main": "server.js",
   "scripts": {
+    "build": "npm run build --prefix client",
     "client-install-": "npm install --prefix client",
     "start": "node server.js",
     "client": "npm start --prefix client ",

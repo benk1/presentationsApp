@@ -29,6 +29,7 @@ import EditPresentation from './components/EditPresentation';
 import http from './services/httpService';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 class App extends Component {
 	state = {
@@ -215,7 +216,7 @@ class App extends Component {
 						<Route path="/signup" component={SignUp} />
 						<Route path="/login" component={LogInForm} />
 						<Route path="/logout" component={LogOut} />
-						<Route
+						<ProtectedRoute
 							path="/presenters/:id"
 							render={(props) => {
 								console.log(props);
@@ -234,9 +235,7 @@ class App extends Component {
 										onEdit={this.onEdit}
 										onUpdate={this.handleUpdate}
 										presenters={presenters}
-										presenter={
-											this.getPresenter(props.match.params.id) //getPresenter={this.getPresenter(props.match.params.id)} //savePresenter={this.savePresenter(props.match.params.id)}
-										}
+										presenter={this.getPresenter(props.match.params.id)}
 									/>
 								);
 							}}

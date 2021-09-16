@@ -6,11 +6,11 @@ import 'font-awesome/css/font-awesome.css';
 import './index.css';
 import App from './App';
 
-//console.log('SUPERHERO', process.env.REACT_APP_API_URL);
+console.log('SUPERMAN', process.env.REACT_APP_NAME);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+	<BrowserRouter>
+		<App />
+	</BrowserRouter>,
+	document.getElementById('root')
 );

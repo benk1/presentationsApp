@@ -12,12 +12,8 @@ class LogInForm extends Form {
 	};
 
 	schema = {
-		username: Joi.string()
-			.required()
-			.label('Username'),
-		password: Joi.string()
-			.required()
-			.label('Password'),
+		username: Joi.string().required().label('Username'),
+		password: Joi.string().required().label('Password'),
 	};
 
 	doSubmit = async () => {
@@ -41,7 +37,7 @@ class LogInForm extends Form {
 	};
 
 	render() {
-		if (getCurrentUser()) return <Redirect to='/presenters' />;
+		if (getCurrentUser()) return <Redirect to="/presenters" />;
 		return (
 			<div>
 				<h1>Login</h1>

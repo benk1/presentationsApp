@@ -6,7 +6,7 @@ import React from 'react';
 import Like from './common/Like';
 //import { getCurrentUser } from '../services/authService';
 
-const Presenter = ({ presenter, onDelete, onHandleToggle, count }) => {
+const Presenter = ({ presenter, onDelete, onHandleToggle, count, user }) => {
 	// console.log('CHECKING', count);
 
 	return (
@@ -17,14 +17,12 @@ const Presenter = ({ presenter, onDelete, onHandleToggle, count }) => {
 				<td>{presenter.topic}</td>
 				<td>{presenter.articleUrl}</td>
 				<td>
-					{moment(presenter.presentationDate)
-						.utcOffset('800')
-						.calendar()}
+					{moment(presenter.presentationDate).utcOffset('800').calendar()}
 				</td>
-				<button className='item-view'>
+				<button className="item-view">
 					<NavLink to={`/presenter/${presenter._id}`}>View</NavLink>
 				</button>
-				<button className='item-edit'>
+				<button className="item-edit">
 					{' '}
 					<NavLink to={`/presenters/${presenter._id}`}>Edit</NavLink>
 				</button>
@@ -37,7 +35,7 @@ const Presenter = ({ presenter, onDelete, onHandleToggle, count }) => {
 					/>
 				</td>
 
-				<button className='item-delete' onClick={() => onDelete(presenter)}>
+				<button className="item-delete" onClick={() => onDelete(presenter)}>
 					Delete
 				</button>
 			</tr>
@@ -46,4 +44,3 @@ const Presenter = ({ presenter, onDelete, onHandleToggle, count }) => {
 };
 
 export default Presenter;
-

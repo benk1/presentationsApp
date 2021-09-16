@@ -1,8 +1,5 @@
 {
 	"jwtPrivateKey": "presentation_jwtPrivateKey",
-	"db": "students_1_db",
- 	"name": "My Express Presentations App"
+	"db": "MONGODB_URI",
+	"name": "My Express Presentations App"
 }
-
-
-

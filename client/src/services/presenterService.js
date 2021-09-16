@@ -1,13 +1,13 @@
 import http from './httpService';
 //import config from '../config.json';
 
-const apiEndpoint = '/presenters'; // OR USE THIS IN FUTURE --->	'http://localhost:3000/presenters';
+const apiEndpoint = '/presenters'; // OR USE THIS IN FUTURE --->	'http://localhost:5000/presenters';
 
 function presenterUrl(id) {
   return `${apiEndpoint}/${id}`;
 }
 export function getPresenters() {
-  return http.get(apiEndpoint); //http://localhost:3000/presenters
+  return http.get(apiEndpoint); //http://localhost:5000/presenters
 }
 
 export function getPresenter(presenterId) {

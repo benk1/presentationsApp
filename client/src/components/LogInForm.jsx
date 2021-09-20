@@ -22,16 +22,16 @@ class LogInForm extends Form {
 			const { data } = this.state;
 			//call the server
 			await login(data.username, data.password);
-
+			console.log(this.props);
 			const { state } = this.props.location;
-			window.location = state ? state.from.pathname : '/presenters';
+			window.location = state ? state.from.pathname : '/';
 
 			// window.location = '/presenters';
 		} catch (ex) {
 			if (ex.response && ex.response.status === 400) {
-				const errors = { ...this.state.errors };
-				errors.username = ex.response.data;
-				this.setState({ errors });
+				const errors = { ...this.state.errors }; // clone the errors object from the state
+				errors.username = ex.response.data; //this will display error from the server
+				this.setState({ errors }); // set the errors ES6--keys == values
 			}
 		}
 	};

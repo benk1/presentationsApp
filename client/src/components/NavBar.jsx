@@ -3,27 +3,27 @@ import { NavLink, Link } from 'react-router-dom';
 
 function Header({ user }) {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
-			<Link className='navbar-brand' to='/presenters'>
+		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<Link className="navbar-brand" to="/">
 				Presentations
 			</Link>
 
-			<div className='collapse navbar-collapse' id='navbarNav '>
-				<ul className='navbar-nav'>
-					<NavLink className='nav-item nav-link' to='/presenters'>
+			<div className="collapse navbar-collapse" id="navbarNav ">
+				<ul className="navbar-nav">
+					{/* <NavLink className='nav-item nav-link' to='/presenters'>
 						Home
-					</NavLink>
+					</NavLink> */}
 
-					<NavLink className='nav-item nav-link' to='/presentation/new'>
+					<NavLink className="nav-item nav-link" to="/presentation/new">
 						AddNewPresentantion
 					</NavLink>
 					{!user && (
 						<>
-							<NavLink className='nav-item nav-link' to='/login'>
+							<NavLink className="nav-item nav-link" to="/login">
 								Login
 							</NavLink>
 
-							<NavLink className='nav-item nav-link' to='/signup'>
+							<NavLink className="nav-item nav-link" to="/signup">
 								SignUp
 							</NavLink>
 						</>
@@ -31,16 +31,16 @@ function Header({ user }) {
 
 					{user && (
 						<>
-							<button type='button' className='btn btn-primary btn-floating'>
+							<NavLink className="nav-item nav-link" to="/logout">
+								Logout
+							</NavLink>
+
+							<button type="button" className="btn btn-primary btn-floating">
 								{user.name[0].toUpperCase()}
 							</button>
 							{/* <NavLink className='nav-item nav-link' to='/profile'>
 								{user.name[0].toUpperCase()}
 							</NavLink> */}
-
-							<NavLink className='nav-item nav-link' to='/logout'>
-								Logout
-							</NavLink>
 						</>
 					)}
 				</ul>

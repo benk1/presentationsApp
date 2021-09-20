@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 // import axios from 'axios';
 import Presenter from './Presenter';
@@ -36,7 +35,7 @@ class Presenters extends Component {
 			);
 		});
 	};
-	
+
 	onSort = (path) => {};
 
 	render() {
@@ -44,22 +43,22 @@ class Presenters extends Component {
 		if (presenters.length === 0)
 			return <p>There are no Presentations in the database</p>;
 		return (
-			<div className='form-container'>
-				<div className='showNumberOfPresentations'>
+			<div className="form-container">
+				<div className="showNumberOfPresentations">
 					<b>Showing {presenters.length} presentations in the database</b>
 				</div>
-				<div className='addPresenter'>
+				<div className="addPresenter">
 					{user && (
 						<NavLink
-							className='btn btn-primary addPresenter'
-							to='/presentation/new'
+							className="btn btn-primary addPresenter"
+							to="/presentation/new"
 						>
 							Add New Presentation
 						</NavLink>
 					)}
 				</div>
 
-				<table className='table'>
+				<table className="table">
 					<thead>
 						<tr>
 							<th onClick={() => onSort('presenterName')}>Presenter</th>

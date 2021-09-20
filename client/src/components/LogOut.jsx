@@ -9,7 +9,7 @@ class LogOut extends Component {
 
 		// const { data: presenters } = await http.get('/presenters');
 
-		window.location = '/presenters';
+		window.location = '/';
 	}
 
 	render() {

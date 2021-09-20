@@ -122,16 +122,7 @@ class App extends Component {
 		}
 		return http.post(`/presenters/`, presenter);
 	};
-	handleSort = (path) => {
-		const sortColumn = { ...this.state.sortColumn };
-		if (sortColumn.path === path)
-			sortColumn.order = sortColumn.order === 'asc' ? 'desc' : 'asc';
-		else {
-			sortColumn.path = path;
-			sortColumn.order = 'asc';
-		}
-		this.setState({ sortColumn: sortColumn });
-	};
+
 	handleSearch = (query) => {
 		this.setState({
 			searchQuery: query,
@@ -157,7 +148,7 @@ class App extends Component {
 			if (this.state.user && this.state.user.isAdmin) {
 				await http.delete(`/presenters/${presenter._id}`);
 			} else {
-				// prompt('Login as Admin Please to delete');
+				alert('Only Admin can delete presentations!');
 				return <Redirect to="/login" />;
 			}
 		} catch (ex) {
@@ -216,7 +207,7 @@ class App extends Component {
 						<Route path="/signup" component={SignUp} />
 						<Route path="/login" component={LogInForm} />
 						<Route path="/logout" component={LogOut} />
-						<ProtectedRoute
+						<Route
 							path="/presenters/:id"
 							render={(props) => {
 								console.log(props);

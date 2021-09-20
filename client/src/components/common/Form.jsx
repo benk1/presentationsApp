@@ -50,7 +50,7 @@ class Form extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const errors = this.validate();
-		console.log('errors are:',errors);
+		console.log('errors are:', errors);
 		this.setState({
 			errors: errors || {},
 		});

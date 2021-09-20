@@ -13,7 +13,7 @@ export async function login(email, password) {
 }
 
 export function loginWithJwt(jwt) {
-	localStorage.setItem(tokenKey);
+	localStorage.setItem(tokenKey, jwt);
 }
 
 export function logout() {

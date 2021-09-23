@@ -4,7 +4,7 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Switch,
-	Redirect,
+	Redirect,Link
 } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -149,7 +149,7 @@ class App extends Component {
 				await http.delete(`/presenters/${presenter._id}`);
 			} else {
 				alert('Only Admin can delete presentations!');
-				return <Redirect to="/login" />;
+				<Link to="login">Go to Login Page</Link>;
 			}
 		} catch (ex) {
 			//Expected Error(404: not Found,400: bad request) - CLIENT ERRORS

@@ -4,15 +4,15 @@ import { NavLink, Link } from 'react-router-dom';
 function Header({ user }) {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<Link className="navbar-brand" to="/">
+			{/* <Link className="navbar-brand" to="/">
 				Presentations
-			</Link>
+			</Link> */}
 
 			<div className="collapse navbar-collapse" id="navbarNav ">
 				<ul className="navbar-nav">
-					{/* <NavLink className='nav-item nav-link' to='/presenters'>
-						Home
-					</NavLink> */}
+					<NavLink className="navbar-brand nav-item nav-link" to="/">
+						Presentations
+					</NavLink>
 
 					<NavLink className="nav-item nav-link" to="/presentation/new">
 						AddNewPresentantion
@@ -36,7 +36,8 @@ function Header({ user }) {
 							</NavLink>
 
 							<button type="button" className="btn btn-primary btn-floating">
-								{user.name[0].toUpperCase()}
+								{user.firstName[0].toUpperCase()}
+								{user.lastName[0].toUpperCase()}
 							</button>
 							{/* <NavLink className='nav-item nav-link' to='/profile'>
 								{user.name[0].toUpperCase()}
